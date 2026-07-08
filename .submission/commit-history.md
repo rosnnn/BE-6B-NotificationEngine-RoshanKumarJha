@@ -6,3 +6,4 @@
 - checkpoint 5 (2026-07-05T10:05:00)
 - checkpoint 6 (2026-07-06T10:06:00)
 - checkpoint 7 (2026-07-07T10:07:00)
+- checkpoint 8 (2026-07-08T10:08:00)
