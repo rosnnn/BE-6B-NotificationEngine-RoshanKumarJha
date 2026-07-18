@@ -1,0 +1,29 @@
+version: 1
+project: BE-6B
+event_types:
+  - { code: RISK-001, name: Margin Call, priority: 1, classification: TRANSACTIONAL, channels: [sms, push, in_app] }
+  - { code: RISK-002, name: MTM Breach, priority: 1, classification: TRANSACTIONAL, channels: [sms, push, in_app] }
+  - { code: REGX-001, name: Regulatory Notice, priority: 1, classification: TRANSACTIONAL, channels: [sms, email] }
+  - { code: REGX-002, name: Compliance Expiry, priority: 2, classification: TRANSACTIONAL, channels: [sms, email, push] }
+  - { code: TXNX-001, name: Buy Order Executed, priority: 2, classification: TRANSACTIONAL, channels: [push, in_app, email] }
+  - { code: TXNX-002, name: Sell Order Executed, priority: 2, classification: TRANSACTIONAL, channels: [push, in_app, email] }
+  - { code: TXNX-003, name: Order Rejected, priority: 2, classification: TRANSACTIONAL, channels: [push, in_app, email] }
+  - { code: TXNX-004, name: Funds Added, priority: 3, classification: TRANSACTIONAL, channels: [push, email, in_app] }
+  - { code: TXNX-005, name: Withdrawal Processed, priority: 3, classification: TRANSACTIONAL, channels: [push, email, in_app] }
+  - { code: MKTX-001, name: Price Alert, priority: 3, classification: PROMOTIONAL, channels: [push, in_app] }
+  - { code: MKTX-002, name: Watchlist Trigger, priority: 3, classification: PROMOTIONAL, channels: [push, in_app, email] }
+  - { code: MKTX-003, name: Analyst Recommendation, priority: 4, classification: PROMOTIONAL, channels: [email, push] }
+  - { code: SIPX-001, name: SIP Debit Reminder, priority: 2, classification: TRANSACTIONAL, channels: [sms, push, in_app] }
+  - { code: SIPX-002, name: SIP Failed, priority: 2, classification: TRANSACTIONAL, channels: [sms, push, in_app] }
+  - { code: SIPX-003, name: SIP Executed, priority: 3, classification: TRANSACTIONAL, channels: [push, in_app, email] }
+  - { code: LOAN-001, name: EMI Due Reminder, priority: 2, classification: TRANSACTIONAL, channels: [sms, push, email] }
+  - { code: LOAN-002, name: EMI Overdue, priority: 1, classification: TRANSACTIONAL, channels: [sms, push, in_app] }
+  - { code: CARD-001, name: Card Transaction Alert, priority: 2, classification: TRANSACTIONAL, channels: [sms, push, in_app] }
+  - { code: CARD-002, name: Card Limit Threshold, priority: 3, classification: TRANSACTIONAL, channels: [push, email, in_app] }
+  - { code: INS-001, name: Policy Renewal Reminder, priority: 3, classification: TRANSACTIONAL, channels: [push, email] }
+  - { code: INS-002, name: Claim Status Update, priority: 2, classification: TRANSACTIONAL, channels: [push, email, in_app] }
+  - { code: KYC-001, name: KYC Expiring Soon, priority: 2, classification: TRANSACTIONAL, channels: [sms, push, email] }
+  - { code: KYC-002, name: KYC Verified, priority: 4, classification: TRANSACTIONAL, channels: [push, in_app] }
+  - { code: SEC-001, name: New Login Alert, priority: 1, classification: TRANSACTIONAL, channels: [sms, push, email] }
+  - { code: SEC-002, name: Password Changed, priority: 2, classification: TRANSACTIONAL, channels: [sms, push, email] }
+  - { code: WALT-001, name: Wallet Cashback Offer, priority: 5, classification: PROMOTIONAL, channels: [push, email, in_app] }

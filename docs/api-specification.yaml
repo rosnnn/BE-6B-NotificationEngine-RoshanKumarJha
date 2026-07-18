@@ -1,0 +1,93 @@
+openapi: 3.0.3
+info:
+  title: BE-6B Notification Engine API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /health:
+    get:
+      summary: Health status
+      responses:
+        '200': { description: OK }
+  /metrics:
+    get:
+      summary: Prometheus metrics
+      responses:
+        '200': { description: Metrics }
+  /api/v1/events:
+    post:
+      summary: Ingest financial event
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventInput'
+      responses:
+        '202': { description: Accepted }
+        '422': { description: Validation failed }
+  /api/v1/users/{userId}/preferences:
+    get:
+      summary: Get user preferences
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200': { description: OK }
+    put:
+      summary: Update user preferences
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema: { type: string, format: uuid }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200': { description: Updated }
+  /api/v1/notifications/{notificationId}:
+    get:
+      summary: Get notification state
+      parameters:
+        - in: path
+          name: notificationId
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200': { description: OK }
+        '404': { description: Not found }
+  /api/v1/analytics/delivery-rates:
+    get:
+      summary: Delivery rates analytics
+      responses:
+        '200': { description: OK }
+  /api/v1/analytics/channel-performance:
+    get:
+      summary: Channel analytics
+      responses:
+        '200': { description: OK }
+  /api/v1/analytics/opt-out-trends:
+    get:
+      summary: Opt-out trends
+      responses:
+        '200': { description: OK }
+components:
+  schemas:
+    EventInput:
+      type: object
+      required: [event_id, event_type, source_system, timestamp, priority, user_id, classification, payload]
+      properties:
+        event_id: { type: string }
+        event_type: { type: string }
+        source_system: { type: string }
+        timestamp: { type: string, format: date-time }
+        priority: { type: integer, minimum: 1, maximum: 5 }
+        user_id: { type: string, format: uuid }
+        classification: { type: string, enum: [TRANSACTIONAL, PROMOTIONAL] }
+        payload: { type: object, additionalProperties: true }

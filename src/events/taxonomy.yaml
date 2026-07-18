@@ -1,0 +1,3 @@
+# Mirrors docs/event-taxonomy.yaml for code-level lookup.
+version: 1
+source: docs/event-taxonomy.yaml

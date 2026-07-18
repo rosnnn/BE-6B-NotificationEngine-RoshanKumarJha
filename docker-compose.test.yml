@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  test:
+    build: .
+    command: npm test
+    env_file:
+      - .env.example
