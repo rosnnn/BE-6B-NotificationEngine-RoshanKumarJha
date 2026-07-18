@@ -44,3 +44,4 @@
 - extra checkpoint 5
 - extra checkpoint 6
 - extra checkpoint 7
+- extra checkpoint 8
