@@ -45,3 +45,4 @@
 - extra checkpoint 6
 - extra checkpoint 7
 - extra checkpoint 8
+- extra checkpoint 9
